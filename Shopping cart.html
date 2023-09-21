@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="calculate.js"></script>
+</head>
+    <title>Format</title>
+    <link rel="stylesheet" href="CityExpress.css">
+</head>
+<body>
+    <div>
+   <h1>City Express</h1>
+    </div>
+
+    <div class="Menu">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Home.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Calculator.html">Calculator</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="Send Parcel.html">Send Parcel</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="Product.html">Product</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="Tracking.html">Track & Trace</a>
+                    </li>
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Find Outlet</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">   
+                            <a class="dropdown-item" href="West Malaysia.html">West Malaysia</a>
+                            <a class="dropdown-item" href="East Malaysia.html">East Malaysia</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="FAQ.html">FAQ</a>
+                    </li>
+
+                </ul> 
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link navright" href="Login.html"><i class="material-icons" style="font-size:32px;">login</i></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link navright" href="Sign up.html"><i class="material-icons" style="font-size:32px;">person_add</i></a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link navright" href="Shopping cart.html"><i class="material-icons" style="font-size:32px;">shopping_basket</i></a>
+                      </li>
+                  </ul>
+                     
+                
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Shopping Cart</h2>
+           
+                
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Product</td>
+                        <td>Size</td>
+                        <td>Unit Price (RM)</td>
+                        <td>Quantity</td>
+                        <td>Amount (RM)</td>
+                    </tr>
+
+                    <tr>
+                        
+                        <td>Box</td>
+                        <td><select id="bsize"  onchange="price()">
+                            <option value=""></option>
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                        </select></td>
+                        <td><input type="number" name="boxprice" id="boxprice" readonly></td>
+                        <td><input type="number" name="bquantity" id="bquantity" value="0" min="0" onchange="price()"></td>
+                        <td><input type="number" name="box" id="box" Value="" readonly></td>
+                    </tr>
+
+
+                    <tr>
+                        
+                        <td>Parcel</td>
+                        <td><select id="psize"  onchange="price()">
+                            <option value=""></option>
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                        </select></td>
+                        <td><input type="number" name="parcelprice" id="parcelprice" readonly></td>
+                        <td><input type="number" name="pquantity" id="pquantity" value="0" min="0" onchange="price()"></td>
+                        <td><input type="number" name="=parcel" id="parcel" Value="" readonly></td>
+                    </tr>
+
+                    <tr>
+                        
+                        <td>Bubble Wrap</td>
+                        <td><select id="psize"  onchange="price()">
+                            <option value=""></option>
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                        </select></td>
+                        <td><input type="number" name="parcelprice" id="parcelprice" readonly></td>
+                        <td><input type="number" name="pquantity" id="pquantity" value="0" min="0" onchange="price()"></td>
+                        <td><input type="number" name="=parcel" id="parcel" Value="" readonly></td>
+                    </tr>
+
+
+                
+                   
+                    <tr>
+                     <td colspan="4">Subtotal</td>
+                     <td><input type="number" id="subtotal" name="subtotal" value=""readonly></td>
+                   </tr>
+
+                   <tr>
+                     <td colspan="4">SST 6%</td>
+                     <td><input type="number" name="sst" id="sst" value=""readonly ></td>
+                   </tr>
+
+                   <tr>
+                     <td colspan="4">Total amount before discount</td>
+                     <td><input type="number" name="bdiscount" id="bdiscount" value=""readonly></td>
+                   </tr>
+
+                  <tr>
+                    <td colspan="4">Promocode: <input type="text" name="promocode" id="promocode" placeholder="Enter your promocode"></td>
+                    <td><input type="number" name="promovalue" id="promovalue" value="0.00" readonly></td>
+                  </tr>
+
+                  <tr>
+                    <td colspan="4">Total amount after discount</td>
+                    <td><input type="number" name="adiscount" id="adiscount" value="" readonly></td>
+                  </tr>
+
+                </table>
+                <button class="btn btn-info  btn-block" onclick="price()">Update total Amount</button>
+                
+                <a href="Checkout.html" style="text-decoration:none">
+                <button class="btn btn-danger btn-block" style="margin-top: 10px;"> Checkout</button></a>
+            </div>
+        </div>
+      </div>
+
+
+    <div class="footer">
+        <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3" id="Foot">
+                <div class="container-fluid">
+            <div class="row">
+                
+                <div class="col-md-12">
+                    <img src="image/Logo.jpeg" width="300px" id="Logo_bottom"> </div>
+
+                </div> 
+            </div>
+            </div>
+            <div class="col-md-3" id="Foot"><h4>Services</h4>
+            <div class="container-fluid">
+                <div class="row">
+                <div class="col-md-6"><a href="Send Parcel.html">Send Parcel</a></div>
+                <div class="col-md-6"><a href="Product.html">Product</a></div>
+                <div class="col-md-6"><a href="Tracking.html">Track & Trace</a></div>
+                <div class="col-md-6"><a href="Calculator.html">Calculator</a></div>
+                <div class="col-md-6"><a href="Feedback.html">Feedback</a></div>
+                <div class="col-md-6"><a href="FAQ.html">FAQ</a></div>
+            </div>
+        </div> 
+            </div>
+            <div class="col-md-3" id="Foot"><h4>Outlet Location</h4>
+                <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6"><a href="West Malaysia.html">West Malaysia</a></div>
+                <div class="col-md-6"><a href="East Malaysia.html">East Malaysia</a></div>
+            </div>
+        </div>
+            </div>
+            <div class="col-md-3" id="Foot"><h4>Follow us</h4>
+                <div class="container-fluid">
+                    
+                
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <a href="https://www.facebook.com/">
+                            <img src="icon/Facebook.png" width="50px">
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <a href="https://wa.link/poe1yi">
+                    <img src="icon/Whatsapp.png" width="50px">
+                </a>
+                    </div>
+                
+                    <div class="col-md-3">
+                        <a href="https://www.messenger.com/">
+                            <img src="icon/Messenger.png" width="50px">
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://www.instagram.com/">
+                            <img src="icon/Insta.png" width="50px">
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    </div>
+    
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

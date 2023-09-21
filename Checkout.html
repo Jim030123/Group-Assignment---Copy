@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://kit.fontawesome.com/77ae68442e.js" crossorigin="anonymous"></script>
+    
+        <!-- Google Icon -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      
+        <style type="text/css">
+            .popup .overlay {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(56, 55, 55, 0.7);
+                z-index: 1;
+                display: none;
+            }
+
+            .popup .content{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%) scale(0);
+                background: rgb(2, 2, 2);
+                border-radius: 20px;
+                width: 450px;
+                height: 220px;
+                z-index: 2;
+                text-align: center;
+                padding: 20px;
+                box-sizing: border-box;
+                padding-top: 35px;
+            }
+
+            .popup .close-btn{
+                cursor: pointer;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                width: 30px;
+                height: 30px;
+                background: #222;
+                color: #fff;
+                font-size: 25px;
+                font-weight: 600;
+                line-height: 30px;
+                text-align: center;
+                border-radius: 50%;
+            }
+
+            .popup.active .overlay {
+                display: block;
+            }
+
+            .popup.active .content {
+                transition: all 300ms ease-in-out;
+                transform: translate(-50%,-50%) scale(1);
+            }
+        </style>
+        
+        <script>
+            function togglePopup(){
+                document.getElementById("popup-1").classList.toggle("active");
+            }
+        </script>
+
+    </head>
+        <title>Checkout</title>
+        <link rel="stylesheet" href="CityExpress.css">
+    </head>
+    <body>
+        <div>
+       <h1>City Express</h1>
+        </div>
+    
+        <marquee scrollamount="10" ><b style="color: red;">ATTENTION:</b> <em> Please ensure do not close browser / refresh page until receive response</em> </marquee>
+    
+
+
+<p>
+<h2>Payment Page</h2>
+<div class="container-fluid">
+<div class="row">
+    
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+
+<form action="">
+  <fieldset>
+    <legend>Your Details</legend>
+<input type="text" name="First name" id="First name" aria-placeholder="true" placeholder="Firstname" size="30">
+<input type="text" name="Last name" id="Last Name" aria-placeholder="true" placeholder="Lastname" size="30"><br><br>
+<input type="text" name="Address line" id="Address " aria-placeholder="true" placeholder="Address line" size="64"><br><br>
+<input type="text" name="City" id="City" aria-placeholder="true" placeholder="City" size="32">
+State:<select name="select" id="select">
+<option value="Please select your state">Please select your state</option>
+<option value="Johor">Johor</option>
+<option value="Kedah">Kedah</option>
+<option value="Kelandan">Kelandan</option>
+<option value="Malaca">Malaca</option>
+<option value="Negeri Sembilan">Negeri Sembilan</option>
+<option value="Pahang">Pahang</option>
+<option value="Perak">Perak</option>
+<option value="Perlis">Perlis</option>
+<option value="Sabah">Sabah</option>
+<option value="Sarawak">Sarawak</option>
+<option value="Selangor">Selangor</option>
+<option value="Terengganu">Terengganu</option>
+<option value="Kuala Lumpur">Kuala Lumpur</option>
+<option value="Labuan">Labuan</option>
+<option value="Putrajaya">Putrajaya</option>
+</select><br><br>
+<input type="text" name="Zip/Postal Code" id="Zip/Postal Code" aria-placeholder="true" placeholder="Zip/Postal Code" size="30">
+<input type="text" name="PhoneNo" id="PhoneNo" aria-placeholder="true" placeholder="PhoneNo" maxlength="12" size="30"><br>
+</fieldset><br>
+<p><input type="checkbox" name="check" value="Save in address book" >Save in address book</p>
+<fieldset>
+Bank: <select name="Bank" id="Bank">
+        <option value="Please Select Your Bank">Please Select Your Bank</option>
+        <option value="Public Bank Berhad">Public Bank Berhad</option>
+        <option value="Bank Simpanan Nasional">Bank Simpanan Nasional</option>
+        <option value="Commerce International Merchant Bankers Berhad">Commerce International Merchant Bankers Berhad</option>
+        </select><br><br>
+<input type="text" name="CardNo" id="CardNo" maxlength="19" size="30" aria-placeholder="true" placeholder="CardNo" >
+<input type="text" name="CVV" id="CVV" aria-placeholder="true" placeholder="CVV" maxlength="3" size="30"><br><br>
+<input type="date" placeholder="DD/MM/YYYY">
+<img src="image/visaMaster.png" height="25" width="5%"><br><br>
+<input type="text" name="PromoteCode" id="Promote Code" maxlength="6" aria-placeholder="true" placeholder="PromoteCode" size="30">
+</fieldset>
+</form>
+<br>
+
+<button onclick="togglePopup()" style="color:black;">Submit</button>   
+
+</div>
+
+<div class="popup" id="popup-1">
+    <div class="overlay"></div>
+ 
+    <div class="content">
+
+        <img src="icon/green-tick.gif" width="50px" >
+        <h2>Payment Completed</h2> <br>
+        <p>Thank You For Purchasing With Us</p>
+        
+        <a href="Home.html">
+        <button  type="button" class="btn btn-success">Return to Home Page</button>
+    </a>
+        
+    </div>
+ </div>
+ 
+ 
+</div>
+</div>
+
+</p>
+
+
+<div class="footer">
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3" id="Foot">
+            <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-md-12">
+                <img src="image/Logo.jpeg" width="350px" id="Logo_bottom"> </div>
+
+            </div> 
+        </div>
+        </div>
+        <div class="col-md-3" id="Foot"><h4>Services</h4>
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-6"><a href="Send Parcel.html">Send Parcel</a></div>
+            <div class="col-md-6"><a href="Product.html">Product</a></div>
+            <div class="col-md-6"><a href="Tracking.html">Track & Trace</a></div>
+            <div class="col-md-6"><a href="Calculator.html">Calculator</a></div>
+            <div class="col-md-6"><a href="Feedback.html">Feedback</a></div>
+            <div class="col-md-6"><a href="FAQ.html">FAQ</a></div>
+        </div>
+    </div> 
+        </div>
+        <div class="col-md-3" id="Foot"><h4>Outlet Location</h4>
+            <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6"><a href="West Malaysia.html">West Malaysia</a></div>
+            <div class="col-md-6"><a href="East Malaysia.html">East Malaysia</a></div>
+        </div>
+    </div>
+        </div>
+        <div class="col-md-3" id="Foot"><h4>Follow us</h4>
+            <div class="container-fluid">
+                
+            
+            <div class="row">
+
+                <div class="col-md-3">
+                    <a href="https://www.facebook.com/">
+                        <img src="icon/Facebook.png" width="50px">
+                    </a>
+                </div>
+
+
+                <div class="col-md-3">
+                    <a href="https://wa.link/poe1yi">
+                <img src="icon/Whatsapp.png" width="50px">
+            </a>
+                </div>
+            
+                <div class="col-md-3">
+                    <a href="https://www.messenger.com/">
+                        <img src="icon/Messenger.png" width="50px">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="https://www.instagram.com/">
+                        <img src="icon/Insta.png" width="50px">
+                    </a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

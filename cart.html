@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <title>Southern Cart</title>
+    <script>
+      function calTotal(){
+        var unit=document.getElementsByName("unit[]");
+        var quantity=document.getElementsByName("quantity[]");
+        var amount=document.getElementsByName("amount[]");
+        var cboxes=document.getElementsByName("item[]");
+        var subtotal=0;
+        var len=cboxes.length;//get number of checkbox
+        for(var i=0;i<len;i++){
+          if(cboxes[i].checked){//run if check box checked          
+          var u=parseFloat(unit[i].value);
+          var q=parseFloat(quantity[i].value);
+          var a=u*q;
+          subtotal=subtotal+a;
+          document.getElementsByName("amount[]")[i].value=a;
+          
+          }
+          else{
+            document.getElementsByName("amount[]")[i].value=0;
+          }
+        }
+        document.getElementById("subtotal").value=subtotal;        
+        var sst=0;
+        var total=0;
+        sst=subtotal*0.06;
+        total=subtotal+sst;
+        total=total.toFixed(2);
+        sst=sst.toFixed(2);//make result to two decimal place   
+        console.log(subtotal);      
+        document.getElementById("sst").value=sst;
+        document.getElementById("total").value=total;
+
+      }
+
+      function calAmount(){
+        var unit=document.getElementsByName("unit[]");
+        var quantity=document.getElementsByName("quantity[]");
+        var amount=document.getElementsByName("amount[]");
+        var len=unit.length;//get number of checkbox
+        for(var i=0;i<len;i++){
+          var u=parseFloat(unit[i].value);
+          var q=parseFloat(quantity[i].value);
+          var a=u*q;
+          document.getElementsByName("amount[]")[i].value=a;          
+        }
+      }
+
+     
+    </script>
+  </head>
+  <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="home.html">Southern Online</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="product.html">Product</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Category
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="phone.html">Phone</a>
+                        <a class="dropdown-item" href="computer.html">Computer</a>
+                        
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a href="cart.html" class="nav-link">My Cart <span class="badge badge-danger">2</span></a>
+
+                    </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                </div>
+              </nav>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>My Cart</h2>
+                <table class="table table-bordered">
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Product</td>
+                        <td>Unit Price</td>
+                        <td>Quantity</td>
+                        <td>Amount</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="item[]" value="" onclick="calTotal()"></td>
+                        <td>VIVO Y50</td>
+                        <td>800 <input type="hidden"  name="unit[]" id="unit[]" value="800" readonly></td>
+                        <td><input type="number" name="quantity[]" id="quantity[]" value="1" min="1"></td>
+                        <td><input type="number" name="amount[]" id="amount[]" Value="" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="item[]" value="" onclick="calTotal()"></td>
+                        <td>Oppo A31</td>
+                        <td>900<input type="hidden"  name="unit[]" id="unit[]" value="900"></td>
+                        <td><input type="number" name="quantity[]" id="quantity[]" value="1" min="1"></td>
+                        <td><input type="number" name="amount[]" id="amount[]" Value="" readonly></td>
+                    </tr>
+                    <tr>
+                      <td colspan="4">Subtotal</td>
+                      <td><input name="subtotal" id="subtotal" type="number" Value="0" readonly></td>
+                    </tr>
+                    <tr>
+                      <td colspan="4">SST %</td>
+                      <td><input name="sst" id="sst" type="number" Value="" readonly></td>
+                    </tr>
+
+                    <tr>
+                      <td colspan="4">Promo Code <input type="text" name="promo" id="promo"></td>
+                      <td><input name="discount" id="discount" type="number" Value="0" readonly></td>
+                    </tr>
+                   
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10"></div>
+          <div class="col-md-2"></div>
+        </div>
+
+        <div class="row" style="background-color: lightblue;">
+          <div class="col-md-4" style="margin-top: 20px;">
+            <Strong>who we are?</Strong><br>
+            We are selling mobile phone and computer to students with reasonable price. <br><br>&copy;copyright <strong>Southern Online</strong>. All Rights Reserved
+          </div>
+          <div class="col-md-4"  style="margin-top: 20px;">
+            <strong>Categories</strong><br>
+            <a href="phone.html">Phone</a><br>
+            <a href="computer.html">Computer</a>
+          </div>
+          
+          <div class="col-md-4"  style="margin-top: 20px;">
+            <a style="margin:20px" href="https://www.facebook.com"><img src="facebook.png" width="50" alt="">
+            </a>
+            <a style="margin:20px" href="https://www.instagram.com"><img src="instagram.png" width="50" alt="">
+            </a>
+            <a style="margin:20px" href="https://wa.link/27fznx"><img src="whatsapp.png" width="50" alt="">
+            </a>
+          </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
